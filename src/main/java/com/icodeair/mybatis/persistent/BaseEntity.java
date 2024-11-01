@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class BaseEntity<T> implements Serializable {
+public class BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -37,7 +37,7 @@ public class BaseEntity<T> implements Serializable {
      * uuid主键
      */
     @TableId(type = IdType.INPUT)
-    private T id;
+    private Object id;
 
     /**
      * 是否删除（0否 1是）
@@ -47,7 +47,7 @@ public class BaseEntity<T> implements Serializable {
     /**
      * 创建者
      */
-    private T createBy;
+    private Object createBy;
 
     /**
      * 创建时间
@@ -58,7 +58,7 @@ public class BaseEntity<T> implements Serializable {
     /**
      * 更新者
      */
-    private T updateBy;
+    private Object updateBy;
 
     /**
      * 更新时间

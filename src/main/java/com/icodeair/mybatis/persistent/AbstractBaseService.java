@@ -13,10 +13,10 @@ import java.util.Objects;
  * @author liuhh
  * @since 2024-04-26
  */
-public abstract class BaseServiceImpl<M extends BaseMapper<T>, T, Y> extends ServiceImpl<M, T> {
-    public abstract Y getUserId();
+public abstract class AbstractBaseService<M extends BaseMapper<T>, T> extends ServiceImpl<M, T> {
+    public abstract Object getUserId();
 
-    public abstract Y getId();
+    public abstract Object getId();
 
     /**
      * 是否继承 BaseEntity
@@ -77,7 +77,7 @@ public abstract class BaseServiceImpl<M extends BaseMapper<T>, T, Y> extends Ser
 
     public boolean save(T item) {
         inertDefaultValue(item);
-        return false;
+        return super.save(item);
     }
 
     public boolean saveOrUpdate(T item) {
